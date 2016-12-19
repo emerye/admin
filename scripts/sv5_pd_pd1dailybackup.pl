@@ -92,7 +92,7 @@ close(FH);
 
 
 # Send notification
-system 'mail -s "Rsync backup sv5 pd1 projects completed" andy@r2semi.com  < /tmp/email2.txt';
+system 'mail -s "Rsync backup sv5 pd1 and pd completed" andy@r2semi.com  < /tmp/email2.txt';
 
 exit;
 
