@@ -2,7 +2,7 @@
 
 
 use strict;
-use lib '/home/andy/release/src/scripts';
+use lib '/home/andy/admin/scripts';
 use Sys::Hostname;
 use Getopt::Long;
 use Utils::lib::Utils;
@@ -65,10 +65,10 @@ print FH "\nBackup started on $curdate.\n";
   print FH  "Backup of sv5:/export/projects started at $time.\n";
   $command = "rsync -a --delete --exclude='*.trn' /export/projects $destdir";
   print $command;
-#  if(Utils::execSys($command,\@message)) {
-#    print FH  "rsync of sv5:/export/projects returned non zero.\n";
-#    print FH @message;
-#  }
+  if(Utils::execSys($command,\@message)) {
+    print FH  "rsync of sv5:/export/projects returned non zero.\n";
+    print FH @message;
+  }
   $elapsedTime = diffTime($startTime);
   print FH "Backup of sv5:/export/projects complete: Elapsed time $elapsedTime\n"; 
 
@@ -80,13 +80,10 @@ print FH "\nBackup completed on $curdate.\n";
 
 
 # Send notification
-system 'mail -s "Rsync backup sv5 pd1 projects completed" andy@r2semi.com  < /tmp/email3.txt';
+system 'mail -s "Rsync backup sv5 projects completed" andy@r2semi.com  < /tmp/email3.txt';
 
 exit;
 
-
-# Send notification
-system 'mail -s "Rsync sv5 projects completed" andy < /tmp/email2.txt';
 
 #######################################################################
 sub Usage()

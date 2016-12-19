@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 use strict;
-use lib '/home/andy/release/src/scripts';
+use lib '/home/andy/admin/scripts';
 use Sys::Hostname;
 use Getopt::Long;
 use Utils::lib::Utils;
