@@ -26,7 +26,7 @@ sub calcElapsedTime;
 
 my ($curdate,$tmp,$debug,$mounted,$hostname,$device,$diskonly,@callret,$time,$retvalue,$command,@message,$sourcedir,$destdir,$weekly,$startTime,$endTime,$elapsedTime,$LOG,$logfile,$saturday);
 
-$destdir = 'sv7:/export/sv5pj';
+$destdir = 'sv8:/space/sv5pd';
 
 $weekly = '';
 $diskonly = '';
