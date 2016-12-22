@@ -62,7 +62,7 @@ print FH "\nBackup started on $curdate.\n";
   $time = gettime();
   $startTime = time();
   print FH  "Backup of sv5:/export/pd1 started at $time.\n";
-  $command = "rsync -a --delete --exclude='*.trn' /export/pd1 $destdir";
+  $command = "rsync -a --delete --exclude='*.trn' --exclude=simulation/ /export/pd1 $destdir";
   print $command;
   if(Utils::execSys($command,\@message)) {
     print FH  "rsync of sv5:/export/pd1 returned non zero.\n";
@@ -75,7 +75,7 @@ print FH "\nBackup started on $curdate.\n";
   $time = gettime();
   $startTime = time();
   print FH  "Backup of sv5:/export/home3/pd started at $time.\n";
-  $command = "rsync -a --delete --exclude='*.trn' /export/home3/pd $destdir";
+  $command = "rsync -a --delete --exclude='*.trn' --exclude=simulation/ /export/home3/pd $destdir";
   print $command;
   if(Utils::execSys($command,\@message)) {
     print FH  "rsync of sv5:/export/home3/pd returned non zero.\n";
