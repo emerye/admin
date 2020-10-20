@@ -72,7 +72,7 @@ print FH "\nBackup started on $curdate.\n";
   $time = gettime();
   $startTime = time();
   print FH  "\n\nBackup of sv5:/export/home2 started at $time.\n";
-  $command = "rsync -a --delete --exclude='*.trn' /export/home2 store:/bk2/sv5";
+  $command = "rsync -a --delete --exclude=cache /export/home2 store:/bk2/sv5";
   print $command;
   if(Utils::execSys($command,\@message)) {
     print FH  "rsync of sv5:/export/home2 returned non zero.\n";

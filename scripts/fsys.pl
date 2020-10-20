@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-
 use strict;
 use warnings;
 use Net::SMTP;  
@@ -66,19 +65,24 @@ $yday,$isdst)=localtime(time);
 $summary = "Current time:  "; 
 $summary = $summary . sprintf("%4d-%02d-%02d %02d:%02d:%02d\n",$year+1900, $mon+1, $mday, $hour, $min, $sec);  
 
-$summary = $summary . "\nSim Disk Usage\n"; 
-diskusage("sv3", "/space"); 
-diskusage("sv4", "/space"); 
-diskusage("sv6", "/space"); 
-diskusage("sv7", "/space");
-diskusage("sv8", "/space");
-diskusage("sv8", "/space1");
+#$summary = $summary . "\nSim Disk Usage\n"; 
+#diskusage("sv7", "/space");
+#diskusage("sv8", "/space");
 $summary = $summary . "\n\nFile Systems\n";
+$summary = $summary . "sv1\n";
 diskusage("sv1", "/export/home");
+$summary = $summary . "\nsv5\n";
 diskusage("sv5", "/export/home1");
 diskusage("sv5", "/export/home2");
 diskusage("sv5", "/export/home3");
 diskusage("sv5", "/export/home4");
+diskusage("sv5", "/export/libs");
+diskusage("sv5", "/export/libs1");
+$summary = $summary . "\nmx1\n";
+diskusage("mx1", "/export/npd"); 
+diskusage("mx1", "/export/mx1home"); 
+diskusage("mx1", "/export/projects"); 
+
 sendMessage(); 
 }
 
